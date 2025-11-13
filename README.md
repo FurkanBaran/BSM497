@@ -2,6 +2,25 @@
 
 An intelligent home automation system that integrates OpenAI's GPT models with Home Assistant to provide natural language control of smart home devices and comprehensive household management.
 
+## 🔭 Project Overview
+
+This project demonstrates a functional AI-powered home assistant built while working full-time. The current implementation focuses on core integration capabilities and production-ready deployment patterns.
+
+**Current Implementation:**
+- Natural language command processing with context awareness
+- Multi-service integration (AI, IoT, Database)
+- Automated household management (inventory, tasks, logging)
+- Docker-based deployment with error handling
+
+**Architectural Vision** (planned extensions):
+- Multi-client support (web, mobile, voice assistants)
+- Voice input/output integration for hands-free operation
+- Calendar API integration for schedule-aware automation
+- Webhook-based event triggers from external services
+- Multi-user authentication and personalized contexts
+
+The project demonstrates scalable architecture patterns that can be extended to support these features as the system evolves.
+
 ## 🎯 Technical Highlights
 
 - **AI Service Integration**: Production-ready integration of OpenAI GPT API with structured prompt engineering and response parsing
@@ -156,19 +175,28 @@ The application uses Docker Compose for multi-container orchestration:
 
 ## 📖 Usage
 
-### Basic Interaction
+### Context-Aware Interaction
 
-The system accepts natural language commands:
+The system understands context and user location to provide intelligent responses:
 
 ```
-Your message: Turn on the living room lights
-Assistant: I've turned on the living room lights for you.
+Your message: Turn on the lights
+Assistant: I've turned on the bedroom lights for you.
+(System knows user is in bedroom from location context)
 
-Your message: What's the temperature in the bedroom?
-Assistant: The bedroom temperature is currently 22 degrees Celsius.
+Your message: I used all the tomatoes, cooking pasta now
+Assistant: Noted! I've added tomatoes to your shopping list and logged that you're cooking pasta for dinner.
+(System automatically infers shopping list update and logs daily activity)
 
-Your message: Add milk to the shopping list
-Assistant: I've added milk to your shopping list.
+Your message: I'm leaving home now
+Assistant: Have a safe trip! Quick reminder: you have 2 pending tasks - 
+"Take out trash" due today, and don't forget to buy milk and tomatoes. 
+The living room lights are still on, should I turn them off?
+(System checks tasks, shopping list, and device states proactively)
+
+Your message: It's too cold in here
+Assistant: I've set the bedroom temperature to 24 degrees. Current temperature is 20 degrees, it should warm up shortly.
+(System knows user location and adjusts the right climate device)
 ```
 
 ### Database Operations
