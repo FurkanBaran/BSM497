@@ -104,7 +104,7 @@ BSM497-master/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/FurkanBaran/BSM497)
 cd BSM497-master
 ```
 
